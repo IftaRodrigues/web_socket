@@ -2,7 +2,7 @@ const express= require("express")();
 const http = require("http").Server(express);
 const serverSocket = require("socket.io")(http);
 
-const porta= 8000;
+const porta= process.env.PORT || 8000;
 http.listen(porta, ()=>console.log("Servidor Iniciado em http://localhost:"+ porta));
 
 express.get("/", (req,res) => res.sendFile(__dirname+"/index.html"));
